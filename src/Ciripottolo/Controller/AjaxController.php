@@ -33,16 +33,10 @@ class AjaxController extends BaseController {
   }
 
 
-  public function beforeExecuteRoute() {
-    parent::beforeExecuteRoute();
-    $this->monolog->addNotice(sprintf('beforeExecuteRoute'));
-  }
-
-
   public function afterExecuteRoute() {
     parent::afterExecuteRoute();
 
-    $this->monolog->addNotice(sprintf('afterExecuteRoute'));
+    $this->response->setHeader('Access-Control-Allow-Origin', '*');
 
     /*
      * Cross-site HTTP requests are HTTP requests for resources from a different domain than the domain of the resource
@@ -59,24 +53,19 @@ class AjaxController extends BaseController {
      * To make possible cross-site AJAX calls, for example from blog.programmazione.it to ajax.programmazione.it, we
      * must set `Access-Control-Allow-Origin` header.
     */
+    /*
     if (isset($_SERVER['HTTP_ORIGIN'])) {
       $origin = $_SERVER['HTTP_ORIGIN'];
 
       if ($this->getDomainName($origin) == $this->domainName)
         $this->response->setHeader('Access-Control-Allow-Origin', $origin);
     }
+    */
   }
 
 
   public function voteAction() {
-    if (isset($_SERVER['HTTP_ORIGIN'])) {
-      $origin = $_SERVER['HTTP_ORIGIN'];
-
-      if ($this->getDomainName($origin) == $this->domainName)
-        $this->response->setHeader('Access-Control-Allow-Origin', $origin);
-    }
-
-    $this->monolog->addNotice(sprintf('passo di qui'));
+    $this->monolog->addNotice("voteAction");
 
     $this->view->disable();
   }
