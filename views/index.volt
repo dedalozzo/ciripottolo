@@ -19,25 +19,5 @@
     <a><img src="/img/ciripottolo.jpg" /></a>
   </div> <!-- /content -->
 
-  <script>
-    $(document).ready(
-      function() {
-        $("#content > a").click(
-          function() {
-            event.preventDefault();
-
-            var postId = 'ciripottolo';
-
-            $.post('http://ajax.ciripottolo.com/vota/', {id: postId}, function(data) {
-              $(this).addClass('active');
-            });
-
-            //alert(postId);
-          }
-        );
-      }
-    );
-  </script>
-
 </body>
 </html>
