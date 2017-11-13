@@ -1,8 +1,8 @@
 {
-    "name": "3f/pitpress",
+    "name": "3f/ciripottolo",
     "description": "A Phalcon project stub.",
     "keywords": ["phalcon", "stub", "project"],
-    "homepage": "http://ciripottolo.com",
+    "homepage": "https://github.com/dedalozzo/ciripottolo",
     "license": "proprietary",
     "authors": [
         {
